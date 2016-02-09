@@ -103,7 +103,7 @@ cd spring-microservices
             }
         
         * curl http://localhost:8765/users/env/server.port 
-       
+        
             {
                 server.port: "8080"
             }

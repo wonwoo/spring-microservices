@@ -103,17 +103,17 @@ cd spring-microservices
         
         * curl http://localhost:8765/users/env/server.port 
         
-            {
-                server.port: "8080"
-            }
+                {
+                    server.port: "8080"
+                }
         
 * config server (cloud git my https://github.com/wonwoo/microservices-config.git)
     1. your git create repository
     2. curl http://localhost:8765/info
         
-        {
-            component: "Zuul Server"
-        }
+            {
+                component: "Zuul Server"
+            }
         
     3. component property modify
 
@@ -137,19 +137,19 @@ cd spring-microservices
         
     5. curl http://localhost:8765/info
     
-        {
-            component: "Zuul Server"
-        }
+            {
+                component: "Zuul Server"
+            }
         
     6. curl -X POST http://localhost:8765/refresh
         
-        [
-            "info.component"
-        ]
+            [
+                "info.component"
+            ]
         
     7. curl http://localhost:8765/info
         
-        {
-            component: "Zuul Server modify test"
-        }
+            {
+                component: "Zuul Server modify test"
+            }
         

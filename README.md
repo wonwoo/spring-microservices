@@ -95,12 +95,11 @@ cd spring-microservices
             ]
         
     2. load balancing
-    
         * curl http://localhost:8765/users/env/server.port 
         
-            {
-                server.port: "8081"
-            }
+                {
+                    server.port: "8081"
+                }
         
         * curl http://localhost:8765/users/env/server.port 
         

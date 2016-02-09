@@ -63,7 +63,7 @@ cd spring-microservices
         
 * user2 server
     1. curl http://localhost:8081/
-        ```
+        
             [
                 {
                     id: 1,
@@ -76,11 +76,11 @@ cd spring-microservices
                     password: "8888"
                 }
             ]
-        ```
+        
 
 * edge server
     1. curl http://localhost:8765/users
-        ```
+        
         [
             {
                 id: 1,
@@ -93,7 +93,7 @@ cd spring-microservices
                 password: "8888"
             }
         ]
-        ```
+        
     2. load balancing
         * curl http://localhost:8765/users/env/server.port 
         

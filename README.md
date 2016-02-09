@@ -46,7 +46,7 @@ cd spring-microservices
         - USERS (192.168.0.6:users:8081 , 192.168.0.6:users:8080)
 
 * users1 server
-    1. curl http://localhost:8080/
+    1. curl [http://localhost:8080/](http://localhost:8080/)
         
             [
                 {
@@ -62,7 +62,7 @@ cd spring-microservices
             ]
         
 * user2 server
-    1. curl http://localhost:8081/
+    1. curl [http://localhost:8081/](http://localhost:8081/)
         
             [
                 {
@@ -79,7 +79,7 @@ cd spring-microservices
         
 
 * edge server
-    1. curl http://localhost:8765/users
+    1. curl [http://localhost:8765/users](http://localhost:8765/users)
 
             [
                 {
@@ -95,13 +95,13 @@ cd spring-microservices
             ]
         
     2. load balancing
-        * curl http://localhost:8765/users/env/server.port 
+        * curl [http://localhost:8765/users/env/server.port](http://localhost:8765/users/env/server.port)
         
                 {
                     server.port: "8081"
                 }
         
-        * curl http://localhost:8765/users/env/server.port 
+        * curl [http://localhost:8765/users/env/server.port](http://localhost:8765/users/env/server.port)
         
                 {
                     server.port: "8080"
@@ -135,19 +135,19 @@ cd spring-microservices
         git push -u origin master
         ```
         
-    5. curl http://localhost:8765/info
+    5. curl [http://localhost:8765/info](http://localhost:8765/info)
     
             {
                 component: "Zuul Server"
             }
         
-    6. curl -X POST http://localhost:8765/refresh
+    6. curl -X POST [http://localhost:8765/refresh](http://localhost:8765/refresh)
         
             [
                 "info.component"
             ]
         
-    7. curl http://localhost:8765/info
+    7. curl [http://localhost:8765/info](http://localhost:8765/info)
         
             {
                 component: "Zuul Server modify test"

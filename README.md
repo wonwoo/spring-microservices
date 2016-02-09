@@ -80,7 +80,7 @@ cd spring-microservices
 
 * edge server
     1. curl http://localhost:8765/users
-        
+
         [
             {
                 id: 1,
@@ -97,27 +97,27 @@ cd spring-microservices
     2. load balancing
         * curl http://localhost:8765/users/env/server.port 
         
-        ```
+        
         {
             server.port: "8081"
         }
-        ```
+        
         * curl http://localhost:8765/users/env/server.port 
         
-        ```
+       
         {
             server.port: "8080"
         }
-        ```
+        
 
 * config server (cloud git my https://github.com/wonwoo/microservices-config.git)
     1. your git create repository
     2. curl http://localhost:8765/info
-        ```
+        
         {
             component: "Zuul Server"
         }
-        ```
+        
     3. component property modify
         ```
         cd microservices-config/
@@ -135,21 +135,22 @@ cd spring-microservices
             git commit spring-zuul-server.yml -m 'zuul server modify'
             git push -u origin master
         ```
+        
     5. curl http://localhost:8765/info
-        ```
+    
             {
                 component: "Zuul Server"
             }
-        ```
+        
     6. curl -X POST http://localhost:8765/refresh
-        ```
+        
         [
             "info.component"
         ]
-        ```
+        
     7. curl http://localhost:8765/info
-        ```server.port
-            {
-                component: "Zuul Server modify test"
-            }
-        ```
+        
+        {
+            component: "Zuul Server modify test"
+        }
+        

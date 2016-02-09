@@ -81,32 +81,32 @@ cd spring-microservices
 * edge server
     1. curl http://localhost:8765/users
 
-        [
-            {
-                id: 1,
-                name: "wonwoo",
-                password: "123123"
-            },
-            {
-                id: 2,
-                name: "kebin",
-                password: "8888"
-            }
-        ]
+            [
+                {
+                    id: 1,
+                    name: "wonwoo",
+                    password: "123123"
+                },
+                {
+                    id: 2,
+                    name: "kebin",
+                    password: "8888"
+                }
+            ]
         
     2. load balancing
     
         * curl http://localhost:8765/users/env/server.port 
         
-        {
-            server.port: "8081"
-        }
+            {
+                server.port: "8081"
+            }
         
         * curl http://localhost:8765/users/env/server.port 
        
-        {
-            server.port: "8080"
-        }
+            {
+                server.port: "8080"
+            }
         
 
 * config server (cloud git my https://github.com/wonwoo/microservices-config.git)

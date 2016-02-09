@@ -95,15 +95,14 @@ cd spring-microservices
         ]
         
     2. load balancing
+    
         * curl http://localhost:8765/users/env/server.port 
-        
         
         {
             server.port: "8081"
         }
         
         * curl http://localhost:8765/users/env/server.port 
-        
        
         {
             server.port: "8080"
@@ -133,9 +132,9 @@ cd spring-microservices
     4. git push 
    
         ```
-            git add spring-zuul-server.yml 
-            git commit spring-zuul-server.yml -m 'zuul server modify'
-            git push -u origin master
+        git add spring-zuul-server.yml 
+        git commit spring-zuul-server.yml -m 'zuul server modify'
+        git push -u origin master
         ```
         
     5. curl http://localhost:8765/info

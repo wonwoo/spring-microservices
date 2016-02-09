@@ -40,7 +40,7 @@ cd spring-microservices
 ## test
 
 * eureka server 
-    1. http://localhost:8761/
+    1. [http://localhost:8761/](http://localhost:8761/)
     2. Instances currently registered with Eureka 
         - SPRING-ZUUL-SERVER (192.168.0.6:spring-zuul-server:8765)
         - USERS (192.168.0.6:users:8081 , 192.168.0.6:users:8080)

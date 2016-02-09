@@ -119,6 +119,7 @@ cd spring-microservices
         }
         
     3. component property modify
+
         ```
         cd microservices-config/
         vi spring-zuul-server.yml 
@@ -128,6 +129,7 @@ cd spring-microservices
         info:
               component: Zuul Server modify test
         ```
+        
     4. git push 
    
         ```
@@ -138,9 +140,9 @@ cd spring-microservices
         
     5. curl http://localhost:8765/info
     
-            {
-                component: "Zuul Server"
-            }
+        {
+            component: "Zuul Server"
+        }
         
     6. curl -X POST http://localhost:8765/refresh
         

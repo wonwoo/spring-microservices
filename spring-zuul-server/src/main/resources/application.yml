@@ -1,21 +1,3 @@
-info:
-  component: Zuul Server
-
-endpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
-  health:
-    sensitive: true
-
-zuul:
-  routes:
-    users: /users/**
-
-server:
-  port: 8765
-
 #logging:
 #  level:
 #    ROOT: INFO

@@ -108,7 +108,6 @@ cd spring-microservices
                 server.port: "8080"
             }
         
-
 * config server (cloud git my https://github.com/wonwoo/microservices-config.git)
     1. your git create repository
     2. curl http://localhost:8765/info

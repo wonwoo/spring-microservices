@@ -22,7 +22,7 @@ cd spring-microservices
 * edge server run
 
 ```
-./spring-eureka-server/start-server-zuul.sh
+./spring-zuul-server/start-server-zuul.sh
 ```
 
 * users1 server run

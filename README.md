@@ -57,6 +57,12 @@ cd spring-microservices
 ./spring-zuul-server/start-server-zuul.sh
 ```
 
+* hystrix server run
+
+```
+./hystrix-dashboard/start-server-hystrix.sh
+```
+
 ## test
 
 * eureka server 

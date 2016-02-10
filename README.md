@@ -96,6 +96,39 @@ cd spring-microservices
                     password: "8888"
                 }
             ]
+
+* board1 server
+    1. curl [http://localhost:8082/](http://localhost:8082/)
+        
+            [
+                {
+                    id: 1,
+                    title: "title",
+                    content: "content"
+                },
+                {
+                    id: 2,
+                    title: ""spring boot microservices",
+                    content: "now start spring boot"
+                }
+            ]
+
+
+* board2 server
+    1. curl [http://localhost:8083/](http://localhost:8083/)
+        
+            [
+                {
+                    id: 1,
+                    title: "title",
+                    content: "content"
+                },
+                {
+                    id: 2,
+                    title: ""spring boot microservices",
+                    content: "now start spring boot"
+                }
+            ]
         
 
 * edge server

@@ -176,7 +176,7 @@ cd spring-microservices
         
 * config server (cloud git my https://github.com/wonwoo/microservices-config.git)
     1. your git create repository
-    2. curl http://localhost:8765/info
+    2. curl [http://localhost:8765/info](http://localhost:8765/info)
         
             {
                 component: "Zuul Server"

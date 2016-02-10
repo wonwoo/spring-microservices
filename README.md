@@ -2,6 +2,13 @@
 
 * spring microservices
 
+
+## clone
+
+```
+git clone https://github.com/wonwoo/spring-microservices.git
+```
+
 ## run 
 ```
 cd spring-microservices

@@ -146,8 +146,22 @@ cd spring-microservices
                     password: "8888"
                 }
             ]
+    2. curl [http://localhost:8765/board](http://localhost:8765/board)
+    
+            [
+                {
+                    id: 1,
+                    title: "title",
+                    content: "content"
+                },
+                {
+                    id: 2,
+                    title: ""spring boot microservices",
+                    content: "now start spring boot"
+                }
+            ]
         
-    2. load balancing
+    3. load balancing
         * curl [http://localhost:8765/users/env/server.port](http://localhost:8765/users/env/server.port)
         
                 {

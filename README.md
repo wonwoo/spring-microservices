@@ -73,7 +73,7 @@ cd spring-microservices
         - BOARD (192.168.0.6:board:8082 , 192.168.0.6:board:8083)
 
 * users1 server
-    1. curl [http://localhost:8080/](http://localhost:8080/)
+    1. curl [http://localhost:8080/user](http://localhost:8080/user)
         
             [
                 {
@@ -89,7 +89,7 @@ cd spring-microservices
             ]
         
 * user2 server
-    1. curl [http://localhost:8081/](http://localhost:8081/)
+    1. curl [http://localhost:8081/user](http://localhost:8081/user)
         
             [
                 {
@@ -105,7 +105,7 @@ cd spring-microservices
             ]
 
 * board1 server
-    1. curl [http://localhost:8082/](http://localhost:8082/)
+    1. curl [http://localhost:8082/board](http://localhost:8082/board)
         
             [
                 {
@@ -122,7 +122,7 @@ cd spring-microservices
 
 
 * board2 server
-    1. curl [http://localhost:8083/](http://localhost:8083/)
+    1. curl [http://localhost:8083/board](http://localhost:8083/board)
         
             [
                 {
@@ -139,7 +139,7 @@ cd spring-microservices
         
 
 * edge server
-    1. curl [http://localhost:8765/users](http://localhost:8765/users)
+    1. curl [http://localhost:8765/user](http://localhost:8765/user)
 
             [
                 {

@@ -12,7 +12,7 @@ import java.util.List;
  * Created by wonwoo on 2016. 2. 9..
  */
 @RestController
-@RequestMapping("/")
+@RequestMapping("/user")
 public class UserController {
 
     @RequestMapping(method = RequestMethod.GET, headers = "Accept=application/json")

@@ -13,7 +13,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/board")
 public class BoardController {
 
     @RequestMapping(method = RequestMethod.GET, headers = "Accept=application/json")

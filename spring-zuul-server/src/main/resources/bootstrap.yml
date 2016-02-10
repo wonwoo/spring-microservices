@@ -4,3 +4,6 @@ spring:
   cloud:
     config:
       uri: ${SPRING_CONFIG_URI:http://localhost:8888}
+
+zuul:
+  ignored-services: board-webservices, users-webservices

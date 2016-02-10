@@ -1,4 +1,4 @@
-#logging:
-#  level:
-#    ROOT: INFO
-#    org.springframework.web: DEBUG
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG

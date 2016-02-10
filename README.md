@@ -64,6 +64,7 @@ cd spring-microservices
     2. Instances currently registered with Eureka 
         - SPRING-ZUUL-SERVER (192.168.0.6:spring-zuul-server:8765)
         - USERS (192.168.0.6:users:8081 , 192.168.0.6:users:8080)
+        - BOARD (192.168.0.6:board:8082 , 192.168.0.6:board:8083)
 
 * users1 server
     1. curl [http://localhost:8080/](http://localhost:8080/)

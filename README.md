@@ -26,11 +26,6 @@ cd spring-microservices
 ./spring-eureka-server/start-server-eureka.sh
 ```
 
-* edge server run
-
-```
-./spring-zuul-server/start-server-zuul.sh
-```
 
 * users1 server run
 
@@ -42,6 +37,24 @@ cd spring-microservices
 
 ```
 ./users-webservices/start-server-users2.sh
+```
+
+* board1 server run
+
+```
+./board-webservices/start-server-board1.sh
+```
+
+* board2 server run
+
+```
+./board-webservices/start-server-board2.sh
+```
+
+* edge server run
+
+```
+./spring-zuul-server/start-server-zuul.sh
 ```
 
 ## test

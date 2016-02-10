@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>spring-zuul-server</groupId>
-	<artifactId>spring.microservices</artifactId>
+	<artifactId>spring-microservices-zuul</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 

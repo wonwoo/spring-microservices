@@ -18,6 +18,6 @@ public class BoardController {
 
     @RequestMapping(method = RequestMethod.GET, headers = "Accept=application/json")
     public List<Board> getUsers() {
-        return Arrays.asList(new Board(1L,"title","content"),new Board(2L,"spring boot microservices","now start spring boot "));
+        return Arrays.asList(new Board(1L,"title","content"),new Board(2L,"spring boot microservices","Hello spring boot microservices"));
     }
 }

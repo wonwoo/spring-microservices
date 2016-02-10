@@ -145,12 +145,10 @@ cd spring-microservices
                 {
                     id: 1,
                     name: "wonwoo",
-                    password: "123123"
                 },
                 {
                     id: 2,
                     name: "kebin",
-                    password: "8888"
                 }
             ]
     2. curl [http://localhost:8765/board](http://localhost:8765/board)
@@ -159,27 +157,15 @@ cd spring-microservices
                 {
                     id: 1,
                     title: "title",
-                    content: "content"
                 },
                 {
                     id: 2,
                     title: ""spring boot microservices",
-                    content: "Hello spring boot microservices"
                 }
             ]
         
     3. load balancing
-        * curl [http://localhost:8765/users/env/server.port](http://localhost:8765/users/env/server.port)
-        
-                {
-                    server.port: "8081"
-                }
-        
-        * curl [http://localhost:8765/users/env/server.port](http://localhost:8765/users/env/server.port)
-        
-                {
-                    server.port: "8080"
-                }
+        * log check
         
 * config server (cloud git my https://github.com/wonwoo/microservices-config.git)
     1. your git create repository
@@ -226,4 +212,13 @@ cd spring-microservices
             {
                 component: "Zuul Server modify test"
             }
-        
+
+
+* hystrix server
+    1. [http://localhost:8001/hystrix](http://localhost:8001/hystrix)
+    2. http://localhost:8765/hystrix.stream/ 
+    3. Monitor Stream click
+    4. [http://localhost:8765/user](http://localhost:8765/user) refresh
+    5. [http://localhost:8765/board](http://localhost:8765/board) refresh
+    6. hystrix check 
+

@@ -9,9 +9,9 @@ import java.security.Principal;
  * Created by wonwoo on 2016. 2. 14..
  */
 @RestController
-public class TestController {
+public class UserController {
 
-    @RequestMapping("/test")
+    @RequestMapping("/me")
     public Principal getCurrentLoggedInUser(Principal user) {
         return user;
     }

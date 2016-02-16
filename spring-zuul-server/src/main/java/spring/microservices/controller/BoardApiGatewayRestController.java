@@ -2,10 +2,15 @@ package spring.microservices.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.oauth2.client.filter.OAuth2ClientAuthenticationProcessingFilter;
+import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeAccessTokenProvider;
+import org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -28,8 +33,10 @@ public class BoardApiGatewayRestController {
         return Collections.emptyList();
     }
 
-    @Autowired
-    @LoadBalanced
+//    @Autowired
+//    @LoadBalanced
+//    @Qualifier("loadBalancedOauth2RestTemplate")
+    //loadBalancedRestTemplate,loadBalancedOauth2RestTemplate
     private RestTemplate restTemplate;
 
 

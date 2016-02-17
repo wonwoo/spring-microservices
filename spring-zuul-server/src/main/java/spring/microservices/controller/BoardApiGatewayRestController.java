@@ -1,6 +1,7 @@
 package spring.microservices.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -8,6 +9,7 @@ import org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfigurati
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.oauth2.client.OAuth2RestOperations;
 import org.springframework.security.oauth2.client.filter.OAuth2ClientAuthenticationProcessingFilter;
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeAccessTokenProvider;
 import org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter;
@@ -33,14 +35,16 @@ public class BoardApiGatewayRestController {
         return Collections.emptyList();
     }
 
-//    @Autowired
-//    @LoadBalanced
-//    @Qualifier("loadBalancedOauth2RestTemplate")
     //loadBalancedRestTemplate,loadBalancedOauth2RestTemplate
-    private RestTemplate restTemplate;
+    @Autowired
+    @LoadBalanced
+    private OAuth2RestOperations restTemplate;
 
 
-    @HystrixCommand(fallbackMethod = "getBoardFallback")
+    @HystrixCommand(fallbackMethod = "getBoardFallback", commandProperties = {
+            @HystrixProperty(name = "execution.isolation.strategy", value = "SEMAPHORE"),
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "1000") })
     @RequestMapping
     public List<Board> getBoards() {
         ParameterizedTypeReference<Collection<Board>> ptr = new ParameterizedTypeReference<Collection<Board>>() {

@@ -1,10 +1,9 @@
-security:
-  user:
-    password: password
+#security:
+#  user:
+#    password: password
 
-
-logging:
-  level:
-    ROOT: INFO
-    org.springframework.web: DEBUG
-    org.springframework.security: DEBUG
+#logging:
+#  level:
+#    ROOT: INFO
+#    org.springframework.web: DEBUG
+#    org.springframework.security: DEBUG

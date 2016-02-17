@@ -6,10 +6,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configurers.GlobalAuthenticationConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeAccessTokenProvider;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -17,6 +21,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
@@ -27,6 +32,7 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.OrRequestMatcher;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import javax.sql.DataSource;
 
@@ -51,7 +57,6 @@ public class OAuth2ServerConfiguration {
         public void configure(HttpSecurity http) throws Exception {
 
             http
-                    // Just for laughs, apply OAuth protection to only 2 resources
                     .requestMatcher(new OrRequestMatcher(
                             new AntPathRequestMatcher("/me")
                     ))
@@ -65,16 +70,11 @@ public class OAuth2ServerConfiguration {
 //                    .authorizeRequests()
 //                    .anyRequest().access("#oauth2.hasScope('read')");
 
-//            http.authorizeRequests()
-//                    .antMatchers("/login")
-//                    .permitAll()
-//                    .and()
-//                    .requestMatchers()
-//                    .antMatchers("/me")
+//            http
+//                    .requestMatchers().antMatchers("/me")
 //                    .and()
 //                    .authorizeRequests()
-//                    .antMatchers("/me")
-//                    .access("#oauth2.hasScope('read')");
+//                    .antMatchers("/me").access("#oauth2.hasScope('read')");
 
 //            http.logout().and().antMatcher("/**").authorizeRequests()
 //                    .antMatchers("/login").permitAll();
@@ -108,9 +108,29 @@ public class OAuth2ServerConfiguration {
         @Override
         public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
 //            endpoints.authenticationManager(authenticationManager);
+
             endpoints.authorizationCodeServices(authorizationCodeServices()).tokenStore(this.tokenStore()).authenticationManager(this.authenticationManager)
                     .userDetailsService(userDetailsService);
         }
+
+
+        @Configuration
+        protected static class AuthenticationManagerConfiguration extends GlobalAuthenticationConfigurerAdapter {
+            @Autowired
+            private UserDetailsService userDetailsService;
+
+            @Override
+            public void init(AuthenticationManagerBuilder auth) throws Exception {
+                auth.userDetailsService(userDetailsService);
+
+//                auth.inMemoryAuthentication()
+//                        .withUser("mstine111").password("secret").roles("USER", "ADMIN").and()
+//                        .withUser("littleidea111").password("secret").roles("USER", "ADMIN").and()
+//                        .withUser("starbuxman2").password("secret").roles("USER", "ADMIN");
+            }
+
+        }
+
 
         @Override
         public void configure(ClientDetailsServiceConfigurer clients) throws Exception {

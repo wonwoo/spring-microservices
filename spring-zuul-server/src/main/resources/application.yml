@@ -1,25 +1,19 @@
-logging:
-  level:
-    ROOT: INFO
-    org.springframework.web: DEBUG
-    org.springframework.security: DEBUG
+#logging:
+#  level:
+#    ROOT: INFO
+#    org.springframework.web: DEBUG
+#    org.springframework.security: DEBUG
 
-  config:
-authserver:
-    hostname: localhost
-    port: 8900
-
-
-security:
-  oauth2:
-    client:
-      accessTokenUri: http://${authserver.hostname}:${authserver.port}/oauth/token
-      userAuthorizationUri: http://${authserver.hostname}:${authserver.port}/oauth/authorize
-      clientId: wonwooapp2
+#security:
+#  oauth2:
+#    sso:
+#      home:
+#        secure: false
+#        path: /,/**/*.html
+#    client:
+#      accessTokenUri: http://localhost:9999/uaa/oauth/token
+#      userAuthorizationUri: http://localhost:9999/uaa/oauth/authorize
 #      clientId: acme
-      clientSecret: XX0000003
 #      clientSecret: acmesecret
-#      grant-type: password
-    resource:
-      userInfoUri: http://${authserver.hostname}:${authserver.port}/me
-      preferTokenInfo: false
+#    resource:
+#      userInfoUri: http://localhost:9999/uaa/user

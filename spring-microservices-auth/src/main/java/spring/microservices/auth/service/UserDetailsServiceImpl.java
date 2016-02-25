@@ -3,9 +3,9 @@ package spring.microservices.auth.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.stereotype.Service;
+import spring.microservices.auth.model.Account;
+import spring.microservices.auth.repository.UserRepository;
 
 /**
  * Created by wonwoo on 2016. 2. 14..
@@ -13,11 +13,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-//    @Autowired
-//    private AccountsRepository accountRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) {
-        return new UserImpl();
+    public UserDetails loadUserByUsername(String username) {Account users = userRepository.findByUsername(username);
+        return new UserImpl(users);
     }
 }

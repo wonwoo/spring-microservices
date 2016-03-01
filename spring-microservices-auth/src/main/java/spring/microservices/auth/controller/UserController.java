@@ -16,4 +16,5 @@ public class UserController {
     public Principal getCurrentLoggedInUser(Principal user) {
         return user;
     }
+
 }

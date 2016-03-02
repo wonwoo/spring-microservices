@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.csrf.CsrfFilter;
@@ -35,7 +34,6 @@ public class SpringZuulServerApplication {
 	@Configuration
 	@EnableOAuth2Sso
 	protected static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-
 		@Override
 		public void configure(HttpSecurity http) throws Exception {
 			http.logout().and().antMatcher("/**").authorizeRequests()

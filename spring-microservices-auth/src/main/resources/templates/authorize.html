@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href="../css/bootstrap.css" rel="stylesheet"></link>
+        <link href="../css/custom.css" rel="stylesheet"></link>
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <form id="approveForm" name="confirmationForm" th:action="@{/oauth/authorize}" method="post">
+                    <h1>Please Confirm</h1>
+                    <p class="lead">Do you authorize <code th:text="${authorizationRequest.clientId}"></code> </p>
+                    <p class="lead"> access resources
+                        <p th:each="scopeItem : ${scopes}">
+                            <code th:text="${scopeItem.key}"/>
+                        <input type="hidden" th:name="${scopeItem.key}" value="true"/>
+                        </p>
+                    </p>
+                    <input type="hidden" name="user_oauth_approval" value="true"/>
+                    <div class="clearfix"></div>
+                    <div class="col-lg-12 text-center">
+                        <div id="successApprove"></div>
+                        <button type="submit" class="btn btn-primary btn-lg">Approve</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

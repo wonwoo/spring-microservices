@@ -47,11 +47,8 @@ public class OAuth2ServerConfiguration {
 
 
             http
-                    .requestMatcher(new OrRequestMatcher(
-                            new AntPathRequestMatcher("/me")
-                    ))
-                    .authorizeRequests()
-                    .anyRequest().access("#oauth2.hasScope('read')");
+                    .antMatcher("/me")
+                    .authorizeRequests().anyRequest().authenticated();
 //
 
 //            http

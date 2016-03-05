@@ -12,6 +12,7 @@ git clone https://github.com/wonwoo/spring-microservices.git
 ## config
 * config server (cloud git my https://github.com/wonwoo/microservices-config.git)
     1. your git create repository
+    2. spring-config-server application.yml your git url
     2. git push
     3. [h2](http://www.h2database.com/html/download.html) database download 
 

@@ -150,13 +150,13 @@ cd spring-microservices
             {
                 component: "Zuul Server"
             }
-~~~
+~~
     6. curl -X POST [http://localhost:8765/refresh](http://localhost:8765/refresh)
         
             [
                 "info.component"
             ]
-~~~    
+~~
     7. open webbrowser [http://localhost:8765/info](http://localhost:8765/info)
         
             {

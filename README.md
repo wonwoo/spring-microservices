@@ -9,6 +9,13 @@
 git clone https://github.com/wonwoo/spring-microservices.git
 ```
 
+## config
+* config server (cloud git my https://github.com/wonwoo/microservices-config.git)
+    1. your git create repository
+    2. git push
+    3. [h2](http://www.h2database.com/html/download.html) database download 
+
+
 ## run 
 ```
 cd spring-microservices
@@ -63,9 +70,7 @@ cd spring-microservices
 ./hystrix-dashboard/start-server-hystrix.sh
 ```
 
-* auth add 
-    - [h2](http://www.h2database.com/html/download.html) database download 
-    - auth server run
+* auth server run
 
 ```
 ./spring-microservices-auth/start-server-auth.sh
@@ -117,52 +122,6 @@ cd spring-microservices
     3. load balancing
         * log check
         
-* config server (cloud git my https://github.com/wonwoo/microservices-config.git)
-    1. your git create repository
-    2. curl [http://localhost:8765/info](http://localhost:8765/info)
-        
-            {
-                component: "Zuul Server"
-            }
-        
-    3. component property modify
-
-        ```
-        cd microservices-config/
-        vi spring-zuul-server.yml 
-        ```
-        
-        ```
-        info:
-              component: Zuul Server modify test
-        ```
-        
-    4. git push 
-   
-        ```
-        git add spring-zuul-server.yml 
-        git commit spring-zuul-server.yml -m 'zuul server modify'
-        git push -u origin master
-        ```
-        
-    5. open webbrowser [http://localhost:8765/info](http://localhost:8765/info)
-    
-            {
-                component: "Zuul Server"
-            }
-
-    ~~6. curl -X POST [http://localhost:8765/refresh](http://localhost:8765/refresh)~~  
-        
-          [
-              "info.component"
-          ]
-
-    7. open webbrowser [http://localhost:8765/info](http://localhost:8765/info)
-        
-            {
-                component: "Zuul Server modify test"
-            }
-
 
 * hystrix server
     1. [http://localhost:8001/hystrix](http://localhost:8001/hystrix)

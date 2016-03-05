@@ -145,19 +145,19 @@ cd spring-microservices
         git push -u origin master
         ```
         
-    5. curl [http://localhost:8765/info](http://localhost:8765/info)
+    5. open webbrowser [http://localhost:8765/info](http://localhost:8765/info)
     
             {
                 component: "Zuul Server"
             }
-        
+~~~
     6. curl -X POST [http://localhost:8765/refresh](http://localhost:8765/refresh)
         
             [
                 "info.component"
             ]
-        
-    7. curl [http://localhost:8765/info](http://localhost:8765/info)
+~~~    
+    7. open webbrowser [http://localhost:8765/info](http://localhost:8765/info)
         
             {
                 component: "Zuul Server modify test"

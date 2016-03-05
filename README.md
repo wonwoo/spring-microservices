@@ -63,9 +63,9 @@ cd spring-microservices
 ./hystrix-dashboard/start-server-hystrix.sh
 ```
 
-auth add 
-* auth server run
-* [h2](http://www.h2database.com/html/download.html) database download 
+* auth add 
+    - [h2](http://www.h2database.com/html/download.html) database download 
+    - auth server run
 
 ```
 ./spring-microservices-auth/start-server-auth.sh

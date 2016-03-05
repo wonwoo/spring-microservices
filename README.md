@@ -63,6 +63,14 @@ cd spring-microservices
 ./hystrix-dashboard/start-server-hystrix.sh
 ```
 
+auth add 
+* auth server run
+* [h2](http://www.h2database.com/html/download.html) database download 
+
+```
+./spring-microservices-auth/start-server-auth.sh
+```
+
 ## test
 
 * eureka server 
@@ -71,75 +79,17 @@ cd spring-microservices
         - SPRING-ZUUL-SERVER (192.168.0.6:spring-zuul-server:8765)
         - USERS (192.168.0.6:users:8081 , 192.168.0.6:users:8080)
         - BOARD (192.168.0.6:board:8082 , 192.168.0.6:board:8083)
-
-* users1 server
-    1. curl [http://localhost:8080/user](http://localhost:8080/user)
-        
-            [
-                {
-                    id: 1,
-                    name: "wonwoo",
-                    password: "123123"
-                },
-                {
-                    id: 2,
-                    name: "kebin",
-                    password: "8888"
-                }
-            ]
-        
-* user2 server
-    1. curl [http://localhost:8081/user](http://localhost:8081/user)
-        
-            [
-                {
-                    id: 1,
-                    name: "wonwoo",
-                    password: "123123"
-                },
-                {
-                    id: 2,
-                    name: "kebin",
-                    password: "8888"
-                }
-            ]
-
-* board1 server
-    1. curl [http://localhost:8082/board](http://localhost:8082/board)
-        
-            [
-                {
-                    id: 1,
-                    title: "title",
-                    content: "content"
-                },
-                {
-                    id: 2,
-                    title: ""spring boot microservices",
-                    content: "Hello spring boot microservices"
-                }
-            ]
+        - AUTH-SERVER (192.168.0.6:auth-server:8900)
 
 
-* board2 server
-    1. curl [http://localhost:8083/board](http://localhost:8083/board)
-        
-            [
-                {
-                    id: 1,
-                    title: "title",
-                    content: "content"
-                },
-                {
-                    id: 2,
-                    title: ""spring boot microservices",
-                    content: "Hello spring boot microservices"
-                }
-            ]
-        
+* auth server
+    1. open webbrowser (http://localhost:8765/user)[http://localhost:8765/user]
+    2. spring security custom login
+    3. username : `wonwoo` password : `111`
+    4. authorize Confirm 
 
 * edge server
-    1. curl [http://localhost:8765/user](http://localhost:8765/user)
+    1. open webbrowser [http://localhost:8765/user](http://localhost:8765/user)
 
             [
                 {
@@ -151,7 +101,7 @@ cd spring-microservices
                     name: "kebin",
                 }
             ]
-    2. curl [http://localhost:8765/board](http://localhost:8765/board)
+    2. open webbrowser [http://localhost:8765/board](http://localhost:8765/board)
     
             [
                 {

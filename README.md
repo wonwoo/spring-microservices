@@ -83,7 +83,7 @@ cd spring-microservices
 
 
 * auth server
-    1. open webbrowser (http://localhost:8765/user)[http://localhost:8765/user]
+    1. open webbrowser [http://localhost:8765/user](http://localhost:8765/user)
     2. spring security custom login
     3. username : `wonwoo` password : `111`
     4. authorize Confirm 
